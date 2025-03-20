@@ -38,7 +38,7 @@ PLATFORMS: list[Platform] = [
 
 def _get_buildable_intf(entry: SelenConfigEntry) -> Device_buildable_intf:
     match entry.data[INTF_TYPE]:
-        case IntfType.SERIAL.name:
+        case IntfType.serial.name:
             return Recup_serial_intf(
                 entry.data[CONF_PORT],
                 Pymodbus_serial_intf_factory(),
@@ -49,9 +49,9 @@ def _get_buildable_intf(entry: SelenConfigEntry) -> Device_buildable_intf:
 
 def _get_conv(entry: SelenConfigEntry) -> Fan_conv:
     match entry.data[CONV_TYPE]:
-        case ConvType.OFF.name:
+        case ConvType.off.name:
             return Fan_non_conv()
-        case ConvType.LINEAR.name:
+        case ConvType.linear.name:
             return Fan_linear_conv()
 
     raise RuntimeError("Unknown conversion.")

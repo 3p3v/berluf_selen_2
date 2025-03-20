@@ -18,8 +18,8 @@ CONV_TYPE = "fans_conv"
 class ConvType(Enum):
     """Fan speed conversion options."""
 
-    OFF = 0
-    LINEAR = 1
+    off = 0
+    linear = 1
 
 
 # Intefrace
@@ -29,7 +29,7 @@ INTF_TYPE = "intf_type"
 class IntfType(Enum):
     """Types of interfaces (low-level connection with recuperator)."""
 
-    SERIAL = 0
+    serial = 0
 
 
 class SelenFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
@@ -56,7 +56,7 @@ class SelenFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
 
                 # Conversion and interface already set, get interface specyfic data
                 match user_input[INTF_TYPE]:
-                    case IntfType.SERIAL.name:
+                    case IntfType.serial.name:
                         # Specify serial port
                         LOGGER.debug("Serial chosen")
                         return await self.async_step_serial()
