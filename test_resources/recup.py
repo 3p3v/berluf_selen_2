@@ -60,12 +60,10 @@ class Recup:
 async def main():
     while True:
         cli = ModbusClient(
-            port="/dev/pts/4", baudrate=9600, bytesize=8, parity="N", stopbits=1
+            port="/srv/pts/ttyV0", baudrate=9600, bytesize=8, parity="N", stopbits=1
         )
 
         recup = Recup(cli)
-
-        # recup.receive_holding_regs()
 
         recup.set_error("00000000")
         recup.send_regs()
@@ -73,7 +71,6 @@ async def main():
         recup.receive_holding_regs()
 
         cli.close()
-        # await asyncio.sleep(10)
 
 
 asyncio.run(main())
