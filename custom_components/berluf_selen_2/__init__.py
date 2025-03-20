@@ -44,7 +44,7 @@ def _get_buildable_intf(entry: SelenConfigEntry) -> Device_buildable_intf:
                 Pymodbus_serial_intf_factory(),
             )
 
-    raise RuntimeError("Unknown interface.")
+    raise RuntimeError(f"Unknown interface: {entry.data[INTF_TYPE]}.")
 
 
 def _get_conv(entry: SelenConfigEntry) -> Fan_conv:

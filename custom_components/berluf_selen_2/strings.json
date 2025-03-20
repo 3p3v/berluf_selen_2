@@ -17,13 +17,13 @@
     "selector": {
         "fans_conv": {
             "options": {
-                "off": "OFF",
-                "linear": "LINEAR"
+                "off": "off",
+                "linear": "linear"
             }
         },
         "intf_type": {
             "options": {
-                "serial": "SERIAL"
+                "serial": "serial"
             }
         }
     }
